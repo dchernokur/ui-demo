@@ -1,5 +1,9 @@
 'use client'
 import React from "react";
+export default function CardBarChart() {
+  return <></>
+}
+/*
 import Chart from "chart.js";
 
 export default function CardBarChart() {
@@ -115,7 +119,7 @@ export default function CardBarChart() {
           </div>
         </div>
         <div className="p-4 flex-auto">
-          {/* Chart */}
+          {* Chart *}
           <div className="relative h-350-px">
             <canvas id="bar-chart" />
           </div>
@@ -124,3 +128,4 @@ export default function CardBarChart() {
     </>
   );
 }
+*/

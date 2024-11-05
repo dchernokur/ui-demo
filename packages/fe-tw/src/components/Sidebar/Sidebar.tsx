@@ -5,7 +5,7 @@ import {usePathname} from 'next/navigation';
 import NotificationDropdown from "@/components/Dropdowns/NotificationDropdown";
 import UserDropdown from "@/components/Dropdowns/UserDropdown";
 
-import type {Links} from "@/consts/nav";
+import type {Links} from "@/types/nav";
 
 export default function Sidebar({links}:{links:Links}) {
 

@@ -1,15 +1,15 @@
-import type {
-	PaymentProposal,
-	RecurringPaymentProposal,
-	TextProposal,
+import {
+	type PaymentProposal, ProposalType,
+	type RecurringPaymentProposal,
+	type TextProposal,
 } from "@/types/props";
-import { PaymentProp, RecurringPaymentProp, TextProp } from "@/types/props";
+
 export const activeProposals: (
 	| TextProposal
 	| PaymentProposal
 	| RecurringPaymentProposal
 )[] = [
-	TextProp({
+	{
 		id: 1,
 		title: "Test Prop",
 		description:
@@ -18,8 +18,9 @@ export const activeProposals: (
 		expiry: new Date(),
 		votesYes: 10,
 		votesNo: 20,
-	}),
-	PaymentProp({
+		propType: ProposalType.TextProposal,
+	},
+	{
 		id: 2,
 		title: "Payment Prop",
 		description:
@@ -30,8 +31,9 @@ export const activeProposals: (
 		votesNo: 20,
 		amount: 200,
 		to: "john",
-	}),
-	RecurringPaymentProp({
+		propType: ProposalType.PaymentProposal,
+	},
+	{
 		id: 3,
 		title: "Recurring Prop",
 		description:
@@ -45,8 +47,9 @@ export const activeProposals: (
 		frequency: 7,
 		numPayments: 5,
 		startPayment: new Date(),
-	}),
-	TextProp({
+		propType: ProposalType.RecurringProposal,
+	},
+	{
 		id: 5,
 		title: "Test Prop",
 		description:
@@ -55,5 +58,6 @@ export const activeProposals: (
 		expiry: new Date(),
 		votesYes: 10,
 		votesNo: 20,
-	}),
+		propType: ProposalType.TextProposal,
+	},
 ];

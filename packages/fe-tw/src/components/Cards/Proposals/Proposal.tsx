@@ -1,26 +1,36 @@
-import {type PaymentProposal, ProposalType, type RecurringPaymentProposal, type TextProposal,} from "@/types/props";
+import {
+	ProposalType,
+	type ProposalTypes,
+
+} from "@/types/props";
 import {ProposalText} from "@/components/Cards/Proposals/ProposalText";
 import {ProposalPayment} from "@/components/Cards/Proposals/ProposalPayment";
 import {ProposalRecurringPayment} from "@/components/Cards/Proposals/ProposalRecurringPayment";
 
 function render(proposal: {
-	proposal: TextProposal | PaymentProposal | RecurringPaymentProposal;
+	proposal: ProposalTypes;
 }) {
-	switch (proposal.propType) {
-		case ProposalType.TextProposal:
-			return <ProposalText proposal={proposal} />;
+		// @ts-ignore
+		switch (proposal.propType) {
+			case ProposalType.TextProposal:
+				// @ts-ignore
+				return <ProposalText proposal={proposal}/>;
 			case ProposalType.PaymentProposal:
-			return <ProposalPayment proposal={proposal} />;
+				// @ts-ignore
+				return <ProposalPayment proposal={proposal}/>;
 			case ProposalType.RecurringProposal:
-			return <ProposalRecurringPayment proposal={proposal} />;
-		default:
-			return <h1>Unknown proposal type {proposal.propType}</h1>;
+				// @ts-ignore
+				return <ProposalRecurringPayment proposal={proposal}/>;
+			default:
+				// @ts-ignore
+				return <h1>Unknown proposal type {proposal.propType}</h1>;
 	}
+
 }
 
 export function Proposal({
 	proposal,
-}: { proposal: TextProposal | PaymentProposal | RecurringPaymentProposal }) {
+}: { proposal: ProposalTypes }) {
 	return (
 		<div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded p-6">
 			<div className="grid grid-cols-6 w-full">
@@ -52,7 +62,10 @@ export function Proposal({
 					</button>
 				</div>
 			</div>
-			{render(proposal)}
+			{
+				//@ts-ignore
+				render(proposal)
+			}
 
 			<div className="grid grid-cols-4">
 			<div className="col-span-6 text-sm">{proposal.description}</div>

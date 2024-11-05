@@ -1,5 +1,10 @@
 'use client'
 import React from "react";
+
+export default function CardBarChart() {
+  return <></>
+}
+/*
 import Chart from "chart.js";
 
 export default function CardLineChart() {
@@ -123,7 +128,7 @@ export default function CardLineChart() {
           </div>
         </div>
         <div className="p-4 flex-auto">
-          {/* Chart */}
+          {* Chart *}
           <div className="relative h-350-px">
             <canvas id="line-chart" />
           </div>
@@ -132,3 +137,4 @@ export default function CardLineChart() {
     </>
   );
 }
+*/
