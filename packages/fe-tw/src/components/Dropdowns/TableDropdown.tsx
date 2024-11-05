@@ -37,6 +37,8 @@ const NotificationDropdown = () => {
         className={
           `${dropdownPopoverShow ? "block " : "hidden "}bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48`
         }
+        style={styles.popper}
+        {...attributes.popper}
       >
         <button type="button"
 
