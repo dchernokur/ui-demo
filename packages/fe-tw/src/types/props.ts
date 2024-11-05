@@ -1,15 +1,20 @@
-export type Proposal = {
-	id: number,
+type Proposal = {
+	id: number;
 	title: string;
 	description: string;
 	started: Date;
 	expiry: Date;
 	votesYes: number;
 	votesNo: number;
-	propType?: string;
+	propType?: ProposalType;
 };
 
-export type TextProposal = Proposal;
+export enum ProposalType {
+	TextProposal = "text",
+	PaymentProposal = "payment",
+	RecurringProposal = "recurring",
+}
+export type TextProposal = Proposal & {};
 export type RecurringPaymentProposal = PaymentProposal & {
 	startPayment: Date;
 	numPayments: number;
@@ -21,13 +26,13 @@ export type PaymentProposal = Proposal & {
 };
 
 export function TextProp(prop: TextProposal): TextProposal {
-	return { propType: "text", ...prop };
+	return { propType: ProposalType.TextProposal, ...prop };
 }
 export function PaymentProp(prop: PaymentProposal): PaymentProposal {
-	return { propType: "payment", ...prop };
+	return { propType: ProposalType.PaymentProposal, ...prop };
 }
 export function RecurringPaymentProp(
 	prop: RecurringPaymentProposal,
 ): RecurringPaymentProposal {
-	return { propType: "recurring", ...prop };
+	return { propType: ProposalType.RecurringProposal, ...prop };
 }

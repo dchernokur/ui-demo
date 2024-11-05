@@ -1,15 +1,20 @@
 import React from "react";
-import { createPopper } from "@popperjs/core";
+//import { createPopper } from "@popperjs/core";
+import { usePopper } from "react-popper";
 
 const NotificationDropdown = () => {
   // dropdown props
+    const [referenceElement, _setReferenceElement] = React.useState(null);
+    const [popperElement, _setPopperElement] = React.useState(null);
+    const { styles, attributes } = usePopper(referenceElement, popperElement);
+
+
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
-  const btnDropdownRef = React.createRef();
-  const popoverDropdownRef = React.createRef();
+
   const openDropdownPopover = () => {
-    createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
-      placement: "left-start",
-    });
+//    createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
+    //  placement: "left-start",
+  //  });
     setDropdownPopoverShow(true);
   };
   const closeDropdownPopover = () => {
@@ -19,7 +24,7 @@ const NotificationDropdown = () => {
     <>
       <button type="button"
         className="text-blueGray-500 py-1 px-3"
-        ref={btnDropdownRef}
+        ref={referenceElement}
         onClick={(e) => {
           e.preventDefault();
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
@@ -28,7 +33,7 @@ const NotificationDropdown = () => {
         <i className="fas fa-ellipsis-v" />
       </button>
       <div
-        ref={popoverDropdownRef}
+        ref={popperElement}
         className={
           `${dropdownPopoverShow ? "block " : "hidden "}bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48`
         }

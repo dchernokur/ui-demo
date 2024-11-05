@@ -10,7 +10,7 @@ export const activeProposals: (
 	| RecurringPaymentProposal
 )[] = [
 	TextProp({
-        id: 1,
+		id: 1,
 		title: "Test Prop",
 		description:
 			"Lorem ipsum odor amet, consectetuer adipiscing elit. Viverra tristique maecenas sociosqu vel varius pulvinar pretium potenti. In in et amet phasellus orci tristique dolor purus taciti. Egestas orci bibendum nulla ligula sit ipsum erat. Non euismod molestie inceptos proin enim. Ornare neque fermentum mi erat ligula eu.",
@@ -20,7 +20,7 @@ export const activeProposals: (
 		votesNo: 20,
 	}),
 	PaymentProp({
-        id: 2,
+		id: 2,
 		title: "Payment Prop",
 		description:
 			"Lorem ipsum odor amet, consectetuer adipiscing elit. Viverra tristique maecenas sociosqu vel varius pulvinar pretium potenti. In in et amet phasellus orci tristique dolor purus taciti. Egestas orci bibendum nulla ligula sit ipsum erat. Non euismod molestie inceptos proin enim. Ornare neque fermentum mi erat ligula eu.",
@@ -32,7 +32,7 @@ export const activeProposals: (
 		to: "john",
 	}),
 	RecurringPaymentProp({
-        id: 3,
+		id: 3,
 		title: "Recurring Prop",
 		description:
 			"Lorem ipsum odor amet, consectetuer adipiscing elit. Viverra tristique maecenas sociosqu vel varius pulvinar pretium potenti. In in et amet phasellus orci tristique dolor purus taciti. Egestas orci bibendum nulla ligula sit ipsum erat. Non euismod molestie inceptos proin enim. Ornare neque fermentum mi erat ligula eu.",
@@ -41,7 +41,10 @@ export const activeProposals: (
 		votesYes: 10,
 		votesNo: 20,
 		amount: 200,
-		to: "john", frequency: 7, numPayments: 5,  startPayment: new Date(),
+		to: "john",
+		frequency: 7,
+		numPayments: 5,
+		startPayment: new Date(),
 	}),
 	TextProp({
 		id: 5,
