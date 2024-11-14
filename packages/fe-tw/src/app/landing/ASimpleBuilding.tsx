@@ -17,8 +17,8 @@ export function ASimpleBuilding() {
 					processes, standards, and choices we made along the way
 				</p>
 				<p className="text-lg font-light leading-relaxed mt-0 mb-4 text-slate-600">
-					We start with a single building, and cover important topics like issuance,
-					fractionization, governance, compliance, and rewards
+					We start with a single building, and cover important topics like
+					issuance, fractionization, governance, compliance, and rewards
 				</p>
 				Check out our&nbsp;
 				<Link href="/" className="font-bold text-slate-700 mt-8">

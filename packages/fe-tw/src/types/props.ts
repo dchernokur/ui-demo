@@ -24,4 +24,7 @@ export type PaymentProposal = Proposal & {
 	amount: number;
 	to: string;
 };
-export type ProposalTypes = TextProposal|RecurringPaymentProposal|PaymentProposal;
+export type ProposalTypes =
+	| TextProposal
+	| RecurringPaymentProposal
+	| PaymentProposal;

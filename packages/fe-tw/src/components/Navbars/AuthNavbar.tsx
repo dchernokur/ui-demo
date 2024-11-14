@@ -6,6 +6,9 @@ import React from "react";
 import type { Links } from "@/types/nav";
 import Link from "next/link";
 import PagesDropdown from "@/components/Dropdowns/PagesDropdown";
+import { openWalletConnectModal } from "@/services/wallets/walletconnect/WalletConnectClient";
+import { useWalletInterface } from "@/services/useWalletInterface";
+import { connectToMetamask } from "@/services/wallets/metamask/metamaskClient";
 
 export default function Navbar({
 	/*	transparent,*/
@@ -13,6 +16,8 @@ export default function Navbar({
 	links,
 }: { transparent?: boolean; title?: string; links: Links }) {
 	const [navbarOpen, setNavbarOpen] = React.useState(false);
+	const { accountId, walletInterface } = useWalletInterface();
+
 	return (
 		<>
 			<nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
@@ -49,9 +54,44 @@ export default function Navbar({
 						</ul>
 						<ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
 							<li className="flex items-center">
-								<PagesDropdown links={links} />
+								{accountId ? (
+									<button
+										type="button"
+										className="lg:text-white lg:hover:text-slate-200 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+										onClick={(e) => {
+											walletInterface.disconnect();
+										}}
+									>
+										[ {accountId} ] Disconnect
+									</button>
+								) : (
+									<>
+										<button
+											type="button"
+											className="lg:text-white lg:hover:text-slate-200 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+											onClick={(e) => {
+												openWalletConnectModal();
+											}}
+										>
+											WalletConnect
+										</button>
+
+										<button
+											type="button"
+											className="lg:text-white lg:hover:text-slate-200 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+											onClick={(e) => {
+												connectToMetamask();
+											}}
+										>
+											Metamask
+										</button>
+									</>
+								)}
 							</li>
 
+							<li className="flex items-center">
+								<PagesDropdown links={links} />
+							</li>
 
 							<li className="flex items-center">
 								<a
@@ -87,8 +127,6 @@ export default function Navbar({
 									<span className="lg:hidden inline-block ml-2">Star</span>
 								</a>
 							</li>
-
-
 						</ul>
 					</div>
 				</div>
