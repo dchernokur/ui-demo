@@ -1,10 +1,8 @@
-'use client'
+"use client";
 import React from "react";
 import UserDropdown from "@/components/Dropdowns/UserDropdown";
 
-
-export default function AdminNavbar({title}:{title:string}) {
-
+export default function AdminNavbar({ title }: { title: string }) {
 	return (
 		<>
 			{/* Navbar */}

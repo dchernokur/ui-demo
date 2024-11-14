@@ -1,5 +1,6 @@
 import {
-	type PaymentProposal, ProposalType,
+	type PaymentProposal,
+	ProposalType,
 	type RecurringPaymentProposal,
 	type TextProposal,
 } from "@/types/props";

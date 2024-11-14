@@ -1,10 +1,8 @@
-import type {TextProposal} from "@/types/props";
+import type { TextProposal } from "@/types/props";
 import React from "react";
 
 export function ProposalText({ proposal }: ProposalTextPropTypes) {
-	return (
-		<></>
-	);
+	return <></>;
 }
 
 interface ProposalTextPropTypes {

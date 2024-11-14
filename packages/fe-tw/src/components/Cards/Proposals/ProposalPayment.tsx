@@ -1,4 +1,4 @@
-import type {PaymentProposal} from "@/types/props";
+import type { PaymentProposal } from "@/types/props";
 import React from "react";
 
 export function ProposalPayment({ proposal }: ProposalPaymentPropTypes) {
