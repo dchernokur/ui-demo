@@ -5,6 +5,8 @@ const defaultValue = {
 	setAccountId: (newValue: string) => {},
 	isConnected: false,
 	setIsConnected: (newValue: boolean) => {},
+	accountEvmAddress: "",
+	setAccountEvmAddress: (newValue: string) => {},
 };
 
 export const WalletConnectContext = createContext(defaultValue);
@@ -14,6 +16,9 @@ export const WalletConnectContextProvider = (props: {
 }) => {
 	const [accountId, setAccountId] = useState(defaultValue.accountId);
 	const [isConnected, setIsConnected] = useState(defaultValue.isConnected);
+	const [accountEvmAddress, setAccountEvmAddress] = useState(
+		defaultValue.accountEvmAddress,
+	);
 
 	return (
 		<WalletConnectContext.Provider
@@ -22,6 +27,8 @@ export const WalletConnectContextProvider = (props: {
 				setAccountId,
 				isConnected,
 				setIsConnected,
+				accountEvmAddress,
+				setAccountEvmAddress,
 			}}
 		>
 			{props.children}

@@ -11,22 +11,23 @@ export const useWalletInterface = () => {
 	const metamaskCtx = useContext(MetamaskContext);
 	const walletConnectCtx = useContext(WalletConnectContext);
 
-	console.log("L16 walletConnectCtx ===", walletConnectCtx);
-
 	if (metamaskCtx.metamaskAccountAddress) {
 		return {
 			accountId: metamaskCtx.metamaskAccountAddress,
+			accountEvmAddress: metamaskCtx.metamaskAccountAddress,
 			walletInterface: metamaskWallet,
 		};
 	} else if (walletConnectCtx.accountId) {
 		return {
 			accountId: walletConnectCtx.accountId,
+			accountEvmAddress: walletConnectCtx.accountEvmAddress,
 			walletInterface: walletConnectWallet,
 		};
 	} else {
 		return {
 			accountId: null,
 			walletInterface: null,
+			accountEvmAddress: null,
 		};
 	}
 };

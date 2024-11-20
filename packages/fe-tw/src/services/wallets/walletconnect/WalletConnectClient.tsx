@@ -202,20 +202,47 @@ class WalletConnectWallet implements WalletInterface {
 			refreshEvent.emit("sync");
 		});
 	}
+
+	async getEvmAccountAddress(accountId: AccountId) {
+		try {
+			const response: any = await fetch(
+				"https://testnet.mirrornode.hedera.com/api/v1/accounts/" +
+					accountId.toString(),
+				{
+					method: "GET",
+					headers: {
+						Accept: "application/json",
+						"Content-Type": "application/json",
+					},
+				},
+			);
+			const responseJson = await response.json();
+			return responseJson.evm_address;
+		} catch (e) {
+			console.error("Error fetching evm account address", e);
+		}
+	}
 }
 export const walletConnectWallet = new WalletConnectWallet();
 
 // this component will sync the walletconnect state with the context
 export const WalletConnectClient = () => {
 	// use the HashpackContext to keep track of the hashpack account and connection
-	const { setAccountId, setIsConnected } = useContext(WalletConnectContext);
+	const { setAccountId, setIsConnected, setAccountEvmAddress } =
+		useContext(WalletConnectContext);
 
 	// sync the walletconnect state with the context
-	const syncWithWalletConnectContext = useCallback(() => {
+	const syncWithWalletConnectContext = useCallback(async () => {
 		const accountId = dappConnector.signers[0]?.getAccountId()?.toString();
 		if (accountId) {
 			setAccountId(accountId);
 			setIsConnected(true);
+
+			const accountEvmAddress = await walletConnectWallet.getEvmAccountAddress(
+				AccountId.fromString(accountId),
+			);
+
+			setAccountEvmAddress(accountEvmAddress);
 		} else {
 			setAccountId("");
 			setIsConnected(false);

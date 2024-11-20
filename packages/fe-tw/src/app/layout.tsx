@@ -5,7 +5,7 @@ import type React from "react";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "@fortawesome/fontawesome-free/css/brands.css";
-import { AllWalletsProvider } from "@/services/wallets/AllWalletsProvider";
+import { Providers } from "@/app/providers";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -33,7 +33,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<AllWalletsProvider>{children}</AllWalletsProvider>
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);

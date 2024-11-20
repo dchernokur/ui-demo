@@ -9,6 +9,7 @@ import PagesDropdown from "@/components/Dropdowns/PagesDropdown";
 import { openWalletConnectModal } from "@/services/wallets/walletconnect/WalletConnectClient";
 import { useWalletInterface } from "@/services/useWalletInterface";
 import { connectToMetamask } from "@/services/wallets/metamask/metamaskClient";
+import TokenBalance from "@/components/TokenBalance/TokenBalance";
 
 export default function Navbar({
 	/*	transparent,*/
@@ -51,6 +52,7 @@ export default function Navbar({
 									Blogs
 								</a>
 							</li>
+							<TokenBalance />
 						</ul>
 						<ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
 							<li className="flex items-center">

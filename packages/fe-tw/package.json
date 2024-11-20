@@ -20,16 +20,18 @@
 		"@metamask/providers": "^18.1.1",
 		"@popperjs/core": "^2.11.8",
 		"@tailwindcss/forms": "0.2.1",
+		"@tanstack/react-query": "^5.60.2",
 		"@walletconnect/modal": "^2.7.0",
 		"@walletconnect/modal-core": "^2.7.0",
 		"@walletconnect/qrcode-modal": "^1.8.0",
 		"@walletconnect/utils": "^2.17.2",
 		"chart.js": "2.9.4",
-		"ethers": "^5.7.2",
+		"ethers": "^6",
 		"next": "15.0.2",
 		"react": "19.0.0-rc-02c0e824-20241028",
 		"react-dom": "19.0.0-rc-02c0e824-20241028",
-		"react-popper": "^2.3.0"
+		"react-popper": "^2.3.0",
+		"viem": "^2.21.48"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",

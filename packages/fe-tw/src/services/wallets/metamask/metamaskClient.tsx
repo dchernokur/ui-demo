@@ -56,8 +56,7 @@ const getProvider = () => {
 	if (!window.ethereum) {
 		throw new Error("Metamask is not installed! Go install the extension!");
 	}
-
-	return new ethers.providers.Web3Provider(window.ethereum);
+	return new ethers.BrowserProvider(window.ethereum);
 };
 
 // returns a list of accounts
@@ -102,7 +101,7 @@ class MetaMaskWallet implements WalletInterface {
 		// build the transaction
 		const tx = await signer.populateTransaction({
 			to: this.convertAccountIdToSolidityAddress(toAddress),
-			value: ethers.utils.parseEther(amount.toString()),
+			value: ethers.parseEther(amount.toString()),
 		});
 		try {
 			// send the transaction
@@ -281,16 +280,16 @@ export const MetaMaskClient = () => {
 			const provider = getProvider();
 			provider.listAccounts().then((signers) => {
 				if (signers.length !== 0) {
-					setMetamaskAccountAddress(signers[0]);
+					setMetamaskAccountAddress(signers[0].address);
 				} else {
 					setMetamaskAccountAddress("");
 				}
 			});
 
 			// listen for account changes and update the account address
-			window?.ethereum?.on("accountsChanged", (accounts: string[]) => {
-				if (accounts.length !== 0) {
-					setMetamaskAccountAddress(accounts[0]);
+			window.ethereum?.on("accountsChanged", (accounts: unknown) => {
+				if ((accounts as string[]).length !== 0) {
+					setMetamaskAccountAddress((accounts as string[])[0]);
 				} else {
 					setMetamaskAccountAddress("");
 				}
