@@ -1,12 +1,13 @@
-export interface NavbarEntry {
+export interface NavbarLinkEntry {
 	title: string;
 	url: string;
 	icon?: string;
+	hideFromNavbar?: boolean
 }
-export interface NavbarHeading {
-	title: string;
-	entries: NavbarEntry[];
-}
+
 export interface Links {
-	headers: NavbarHeading[];
+	admin: NavbarLinkEntry[],
+	regularUser: NavbarLinkEntry[],
 }
+
+export type LinkPages = 'admin' | 'regularUser'
