@@ -26,6 +26,7 @@
 		"@walletconnect/qrcode-modal": "^1.8.0",
 		"@walletconnect/utils": "^2.17.2",
 		"chart.js": "2.9.4",
+		"daisyui": "^4.12.14",
 		"ethers": "^6",
 		"next": "15.0.2",
 		"react": "19.0.0-rc-02c0e824-20241028",
