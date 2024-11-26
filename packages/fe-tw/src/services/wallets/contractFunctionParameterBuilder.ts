@@ -28,8 +28,13 @@ export class ContractFunctionParameterBuilder {
 
 	// Purpose: Build the ethers compatible contract function call params
 	// Reason: An array of strings is required to call a contract function using ethers
+	// public buildEthersParams(): string[] {
+	// 	return this.params.map((param) => param.value.toString());
+	// }
+
 	public buildEthersParams(): string[] {
-		return this.params.map((param) => param.value.toString());
+		const res = this.params.map((param) => param.value);
+		return res;
 	}
 
 	// Purpose: Build the HAPI compatible contract function params

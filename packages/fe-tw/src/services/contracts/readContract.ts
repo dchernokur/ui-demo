@@ -9,6 +9,8 @@ export async function readContract(parameters: any) {
 			parameters.args as [],
 		);
 
+		//@TODO check out the contract.viewOrPureMethod
+
 		const response = await fetch(
 			"https://testnet.mirrornode.hedera.com/api/v1/contracts/call",
 			{

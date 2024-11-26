@@ -1,8 +1,10 @@
+"use client";
+
 import { useContext } from "react";
 import { WalletConnectContext } from "@/context/WalletConnectContext";
 import { walletConnectWallet } from "@/services/wallets/walletconnect/WalletConnectClient";
 import { MetamaskContext } from "@/context/MetamaskContext";
-import { metamaskWallet } from "@/services/wallets/metamask/metamaskClient";
+import { metamaskWallet } from "@/services/wallets/metamask/MetaMaskClient";
 
 // Purpose: This hook is used to determine which wallet interface to use
 // Example: const { accountId, walletInterface } = useWalletInterface();

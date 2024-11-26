@@ -8,7 +8,7 @@ import Link from "next/link";
 import PagesDropdown from "@/components/Dropdowns/PagesDropdown";
 import { openWalletConnectModal } from "@/services/wallets/walletconnect/WalletConnectClient";
 import { useWalletInterface } from "@/services/useWalletInterface";
-import { connectToMetamask } from "@/services/wallets/metamask/metamaskClient";
+import { connectToMetamask } from "@/services/wallets/metamask/MetaMaskClient";
 import TokenBalance from "@/components/TokenBalance/TokenBalance";
 
 export default function Navbar({
