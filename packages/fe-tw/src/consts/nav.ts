@@ -2,7 +2,12 @@ import type { Links } from "@/types/nav";
 
 export const links: Links = {
 	admin: [
-		{ title: "+ Building", url: "/buildings/add", icon: "fa-plus", hideFromNavbar: true },
+		{
+			title: "+ Building",
+			url: "/buildings/add",
+			icon: "fa-plus",
+			hideFromNavbar: true,
+		},
 		{ title: "Explorer", url: "/", icon: "fa-tv" },
 		{ title: "Portfolio", url: "/dash/portfolio", icon: "fa-tools" },
 		{ title: "Upcoming", url: "/dash/upcoming", icon: "fa-table" },

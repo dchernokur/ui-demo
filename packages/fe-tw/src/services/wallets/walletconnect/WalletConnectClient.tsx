@@ -32,7 +32,7 @@ import { useCallback, useContext, useEffect } from "react";
 import { WalletConnectContext } from "@/context/WalletConnectContext";
 import type { ContractFunctionParameterBuilder } from "@/services/wallets/contractFunctionParameterBuilder";
 import { appConfig } from "@/consts/config";
-import {buildFunctionParamsFromAbi} from "@/services/util";
+import { buildFunctionParamsFromAbi } from "@/services/util";
 
 // Created refreshEvent because `dappConnector.walletConnectClient.on(eventName, syncWithWalletConnectContext)` would not call syncWithWalletConnectContext
 // Reference usage from walletconnect implementation https://github.com/hashgraph/hedera-wallet-connect/blob/main/src/lib/dapp/index.ts#L120C1-L124C9

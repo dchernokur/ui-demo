@@ -21,9 +21,7 @@ export default function RootLayout({
 			<FENavbar linksForPage="admin" title="">
 				<div className="relative bg-slate-100">
 					<HeaderStats />
-					<div className="px-4 md:px-10 mx-auto w-full -m-24">
-						{children}
-					</div>
+					<div className="px-4 md:px-10 mx-auto w-full -m-24">{children}</div>
 				</div>
 			</FENavbar>
 			<FooterAdmin />
